@@ -1,0 +1,48 @@
+{
+  "name": "@example/basics",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^1.0.0",
+    "@astrojs/vercel": "^1.0.0",
+    "astro": "^1.0.5",
+    "prettier": "^2.7.1",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-code-titles": "^1.1.0",
+    "rehype-slug": "^5.0.1",
+    "sass": "^1.54.4",
+    "tailwindcss": "3.1.8",
+    "tailwindcss-themer": "^2.0.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "date-fns": "^2.29.1",
+    "rehype-pretty-code": "^0.3.2",
+    "shiki": "^0.11.1"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "htmlWhitespaceSensitivity": "css",
+    "insertPragma": false,
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": true,
+    "printWidth": 80,
+    "proseWrap": "preserve",
+    "quoteProps": "as-needed",
+    "requirePragma": false,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false,
+    "vueIndentScriptAndStyle": false
+  }
+}

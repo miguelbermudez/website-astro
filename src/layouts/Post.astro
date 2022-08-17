@@ -1,0 +1,23 @@
+---
+import { format, parse } from 'date-fns';
+import Layout from '@layouts/Layout.astro';
+const { title, date, astro } = Astro.props.content;
+const publishDate = format(parse(date, 'yyyy-MM-dd', new Date()), 'MMMM d, yyyy')
+const { pathname } = Astro.url
+const slug = pathname.split('/').splice(-2)[0]
+---
+
+<Layout title={title}>
+  <article>
+    <header>
+      <h1>{title}</h1>
+      <time datetime={date}>{publishDate}</time>
+    </header>
+    <section>
+      <slot />
+    </section>
+  </article>
+</Layout>
+
+<style>
+</style>

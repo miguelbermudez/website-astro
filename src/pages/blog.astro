@@ -1,0 +1,35 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+type PostFrontMatter = {
+  title: string;
+  summary: string;
+  original?: {
+    url: string
+    external?: boolean
+  }
+  date: string
+};
+
+
+const title = 'Blog'
+const description = 'Meanderings'
+const posts = await Astro.glob<PostFrontMatter>('./blog/*.md');
+posts.sort((a, b) => Date.parse(a.frontmatter.date) - Date.parse(b.frontmatter.date))
+---
+
+<Layout {title} {description}>
+  <h1 class="font-bold text-4xl sm:text-5xl tracking-tight mb-6 sm:mb-10">Blog</h1>
+  <ul class="space-y-8 sm:space-y-12">
+    {posts.map(({ frontmatter: fm, url }) => (
+    <li>
+      <article>
+        <div>
+          <h3><a href={fm.original?.external ? fm.original?.url : url }>{fm.title}</a></h3>
+        </div>
+        <p>{fm.summary}</p>
+      </article>
+    </li>
+    ))}
+  </ul>
+</Layout>
