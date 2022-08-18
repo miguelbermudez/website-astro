@@ -29,22 +29,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('tailwindcss-themer')({
-      themes: [
-        {
-          name: 'beryl',
-          extend: {
-            colors: {
-              text: '#FDF7F7',
-              background: '#9F1239',
-            },
-          },
-        },
-        {
-          name: 'moon',
-        },
-      ],
-    }),
-  ],
+  plugins: [],
 };
