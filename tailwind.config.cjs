@@ -3,6 +3,14 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Soehne-Buch"', ...defaultTheme.fontFamily.sans],
+        'sans-bold': ['"Soehne-Dreiviertelfett"'],
+        'sans-light': ['"Soehne-Leicht"'],
+        serif: ['"Heldane-Text-Regular"', ...defaultTheme.fontFamily.serif],
+        'serif-bold': ['"Heldane-Text-Bold"'],
+        'serif-italic': ['"Heldane-Text-Italic"'],
+      },
       colors: {
         karaka: 'rgb(var(--color-karaka))',
         merino: 'rgb(var(--color-merino))',
