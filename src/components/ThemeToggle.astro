@@ -1,8 +1,15 @@
 <button type='button' aria-label='Switch theme' {...Astro.props}>
   <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="19" height="19">
-    <path d="M3.5 2.5a1 1 0 110 2 1 1 0 010-2z" stroke="currentColor"></path>
-    <path d="M11.5.5h-8a3 3 0 000 6h8a3 3 0 100-6zm0 12a1 1 0 110-2 1 1 0 010 2z" stroke="currentColor"></path>
-    <path d="M3.5 14.5h8a3 3 0 100-6h-8a3 3 0 000 6z" stroke="currentColor"></path>
+    <g id="outline">
+      <path d="M3.5 2.5a1 1 0 110 2 1 1 0 010-2z" stroke="currentColor"></path>
+      <path d="M11.5.5h-8a3 3 0 000 6h8a3 3 0 100-6zm0 12a1 1 0 110-2 1 1 0 010 2z" stroke="currentColor"></path>
+      <path d="M3.5 14.5h8a3 3 0 100-6h-8a3 3 0 000 6z" stroke="currentColor"></path>
+    </g>
+    <g id="solid">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M0 3.5A3.5 3.5 0 013.5 0h8a3.5 3.5 0 110 7h-8A3.5 3.5 0 010 3.5zM3.5 2a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM15 11.5a3.5 3.5 0 01-3.5 3.5h-8a3.5 3.5 0 110-7h8a3.5 3.5 0 013.5 3.5zM11.5 13a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
+        fill="currentColor"></path>
+    </g>
   </svg>
 </button>
 
@@ -21,10 +28,20 @@
       grid-area: 1/1;
       height: calc(var(--size) * 0.75);
       width: calc(var(--size) * 0.75);
+
+      >g#solid {
+        visibility: hidden;
+      }
     }
 
     &:hover {
-      background: hsl(0 0% 50% / 0.3);
+      #outline {
+        visibility: hidden;
+      }
+
+      #solid {
+        visibility: visible;
+      }
     }
   }
 </style>
