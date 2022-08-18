@@ -12,9 +12,10 @@ module.exports = {
         'serif-italic': ['"Heldane-Text-Italic"'],
       },
       colors: {
-        karaka: 'rgb(var(--color-karaka))',
+        woodsmoke: 'rgb(var(--color-woodsmoke))',
         merino: 'rgb(var(--color-merino))',
         wepeep: 'rgb(var(--color-wepeep))',
+        ebb: 'rgb(var(--color-ebb))',
         tamarillo: 'rgb(var(--color-tamarillo))',
         meinsk: 'rgb(var(--color-meinsk))',
         tallpoppy: 'rgb(var(--color-tallpoppy))',
