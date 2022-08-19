@@ -2,7 +2,6 @@
 import '../global.css'
 import '../styles/typography.scss';
 import ThemeToggle from '@components/ThemeToggle.astro';
-import ActiveLink from '@components/ActiveLink.astro';
 import Nav from '@components/Nav.astro';
 export interface Props {
   title: string;
@@ -34,13 +33,13 @@ const { title } = Astro.props as Props;
 </head>
 
 <body>
-  <div class="m-auto p-6 max-w-3xl lg:max-w-4xl">
-    <header class=" flex w-full justify-between items-center">
+  <div class="m-auto p-2 md:p-6 max-w-3xl lg:max-w-4xl">
+    <header class=" flex w-full justify-between items-center mt-2">
       <a href="#skip" class="sr-only focus:not-sr-only">
         Skip to content
       </a>
       <Nav />
-      <div class='theme-toggle-wrapper p-2 rounded-md'>
+      <div class='theme-toggle-wrapper rounded-md p-2'>
         <ThemeToggle id='theme-toggle' />
       </div>
     </header>
@@ -51,8 +50,13 @@ const { title } = Astro.props as Props;
 </body>
 
 </html>
-<style>
+<style lang="scss">
   :global(body) {
     padding: var(--size-fluid-2);
+  }
+
+  .theme-toggle-wrapper:hover {
+    background-color: var(--color-tint);
+    cursor: pointer;
   }
 </style>

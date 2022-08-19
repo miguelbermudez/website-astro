@@ -80,8 +80,18 @@ article>header {
 }
 
 nav {
-  @apply font-sans-bold text-xs tracking-widest;
+  @apply font-sans-bold text-xs tracking-wide;
   text-transform: uppercase;
+
+  li a span {
+    font-size: 10px;
+  }
+}
+
+.theme-toggle-btn span {
+  @apply font-sans-bold text-xs tracking-wide;
+  text-transform: uppercase;
+  font-size: 10px;
 }
 
 img {}

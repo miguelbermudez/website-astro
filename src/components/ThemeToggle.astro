@@ -1,4 +1,5 @@
-<button type='button' aria-label='Switch theme' {...Astro.props}>
+<button class="theme-toggle-btn" type='button' aria-label='Switch theme' {...Astro.props}>
+  <span>Theme Toggle</span>
   <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="19" height="19">
     <g id="outline">
       <path d="M3.5 2.5a1 1 0 110 2 1 1 0 010-2z" stroke="currentColor"></path>
@@ -14,15 +15,44 @@
 </button>
 
 <style lang='scss'>
+  span {
+    position: absolute;
+    bottom: -1.75rem;
+    opacity: 0;
+    min-width: 5rem;
+  }
+
+  :global(.theme-toggle-wrapper:hover:hover) {
+    svg {
+      animation-name: pulse;
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.3s;
+    }
+
+    svg #outline {
+      visibility: hidden;
+    }
+
+    svg #solid {
+      visibility: visible;
+    }
+
+    span {
+      animation-name: flipInX;
+      opacity: 1;
+      animation-iteration-count: 1;
+      animation-duration: 0.5s;
+    }
+  }
+
   button {
-    --size: 1.5rem;
-    height: var(--size);
+    display: flex;
+    flex-direction: column;
     width: var(--size);
     background: transparent;
     cursor: pointer;
-    display: grid;
     place-items: center;
-    overflow: hidden;
+    position: relative;
 
     >svg {
       grid-area: 1/1;

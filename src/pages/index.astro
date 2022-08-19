@@ -6,7 +6,7 @@ import Card from '../components/Card.astro';
 <Layout title="Welcome to Astro.">
   <main>
     <h1>Welcome to <span class="text-gradient">Astro</span></h1>
-    <p class="instructions">
+    <p class="instructions font-serif">
       Check out the <code>src/pages</code> directory to get started.<br />
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
@@ -28,24 +28,4 @@ import Card from '../components/Card.astro';
   h1 {}
 
   main {}
-
-  .text-gradient {}
-
-  @keyframes pulse {
-
-    0%,
-    100% {
-      background-position-y: 0%;
-    }
-
-    50% {
-      background-position-y: 80%;
-    }
-  }
-
-  .instructions {}
-
-  .instructions code {}
-
-  .link-card-grid {}
 </style>
