@@ -5,10 +5,6 @@ import NotesIcon from '@components/icons/NotesIcon.astro';
 import TodayILearnedIcon from '@components/icons/TodayILearnedIcon.astro';
 import WorksIcon from '@components/icons/WorksIcon.astro';
 
-export type Props = {
-  href: string
-}
-
 const { pathname } = Astro.url
 // const isActive = href !== '/' && pathname.startsWith(href)
 
@@ -43,25 +39,27 @@ const navButton: [any, string, string][] = [
   nav {
     display: flex;
     align-items: center;
-    margin-top: 0.5rem;
 
     li {
+      @apply rounded-md;
       margin-top: 1px;
+      cursor: pointer;
+
     }
   }
 
   span {
     position: absolute;
-    top: -28px;
+    bottom: -1.75rem;
     opacity: 0;
+    pointer-events: none;
 
     &.active {
-      opacity: 1;
+      // opacity: 1;
     }
   }
 
   :global(nav li:hover) {
-    @apply rounded-md;
     background-color: var(--color-tint);
 
     :global(.icon-btn) {

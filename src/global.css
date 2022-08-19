@@ -24,14 +24,16 @@
 
 :root {
   --color-text: theme('colors.woodsmoke');
+  --color-text-rgb: var(--color-woodsmoke);
   --color-background: theme('colors.zinc.50');
   --color-border: theme('colors.stone.300');
   --color-tint: rgb(var(--color-woodsmoke) / 0.15);
 }
 :root[color-mode='dark'] {
   --color-text: theme('colors.ebb');
+  --color-text-rgb: var(--color-ebb);
   --color-background: theme('colors.woodsmoke');
-  --color-tint: rgb(var(--color-woodsmoke) / 0.15);
+  --color-tint: rgb(var(--color-ebb) / 0.15);
 }
 :root[color-mode='beryl'] {
   --color-text: theme('colors.tamarillo');
@@ -67,22 +69,17 @@ body {
   grid-column: col-start / span 12;
 }
 
-nav li:hover {
-  @apply rounded-md;
-  background-color: var(--color-tint);
-}
-nav li:hover button #outline {
-  visibility: hidden;
-}
-nav li:hover button #solid {
-  visibility: hidden;
-  visibility: visible;
-}
-
 ul,
 ol {
   list-style-position: outside;
   margin: 0;
+}
+
+nav span {
+  color: rgb(var(--color-text-rgb) / 0.7);
+}
+nav span.active {
+  color: rgb(var(--color-text-rgb) / 0.9);
 }
 
 pre {
@@ -132,6 +129,46 @@ div[data-rehype-pretty-code-fragment] {
 }
 .rehype-code-title + div[data-rehype-pretty-code-fragment] {
   @apply rounded-t-none;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 1.15, 1.15);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes flipInX {
+  from {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  to {
+    transform: perspective(400px);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
