@@ -1,9 +1,10 @@
 ---
 export interface Props {
   label: string;
+  isActive: boolean;
 }
 
-const { label } = Astro.props;
+const { label, isActive } = Astro.props;
 ---
 
 <button type='button' aria-label={label}>
@@ -30,24 +31,24 @@ const { label } = Astro.props;
     place-items: center;
     overflow: hidden;
 
-    >svg {
+    svg {
       grid-area: 1/1;
       height: calc(var(--size) * 0.75);
       width: calc(var(--size) * 0.75);
 
-      >g#solid {
+      g#solid {
         visibility: hidden;
       }
     }
+  }
 
-    &:hover {
-      #outline {
-        visibility: hidden;
-      }
+  svg.active {
+    g#solid {
+      visibility: visible;
+    }
 
-      #solid {
-        visibility: visible;
-      }
+    g#outline {
+      visibility: hidden;
     }
   }
 </style>

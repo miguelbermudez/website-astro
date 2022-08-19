@@ -1,0 +1,89 @@
+---
+import HomeIcon from '@components/icons/HomeIcon.astro';
+import PostsIcon from '@components/icons/PostsIcon.astro';
+import NotesIcon from '@components/icons/NotesIcon.astro';
+import TodayILearnedIcon from '@components/icons/TodayILearnedIcon.astro';
+import WorksIcon from '@components/icons/WorksIcon.astro';
+
+export type Props = {
+  href: string
+}
+
+const { pathname } = Astro.url
+// const isActive = href !== '/' && pathname.startsWith(href)
+
+const isActive = (href: string): boolean => href !== '/' && pathname.startsWith(href);
+
+const navButton: [any, string, string][] = [
+  [HomeIcon, 'Home', '/'],
+  [PostsIcon, 'Blog', '/blog'],
+  [NotesIcon, 'Notes', '/notes'],
+  [TodayILearnedIcon, 'Til', '/til'],
+  [WorksIcon, 'Works', '/works'],
+];
+
+---
+
+<nav>
+  <ul class="flex items-stretch justify-between gap-3">
+    {navButton.map(([Icon, text, href]) => (
+    <li class="p-2 group ">
+      <a class="flex items-center" href={href}>
+        <div class="nav-item flex flex-col items-center relative">
+          <Icon isActive={isActive(href)} />
+          <span class={`${isActive(href) && 'active' }`}>{text}</span>
+        </div>
+      </a>
+    </li>
+    ))}
+  </ul>
+</nav>
+
+<style lang="scss">
+  nav {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+
+    li {
+      margin-top: 1px;
+    }
+  }
+
+  span {
+    position: absolute;
+    top: -28px;
+    opacity: 0;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  :global(nav li:hover) {
+    @apply rounded-md;
+    background-color: var(--color-tint);
+
+    :global(.icon-btn) {
+      animation-name: pulse;
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.3s;
+    }
+
+    :global(#outline) {
+      visibility: hidden;
+    }
+
+    :global(#solid) {
+      visibility: visible;
+    }
+
+    a span {
+      animation-name: flipInX;
+      opacity: 1;
+      animation-iteration-count: 1;
+      animation-duration: 0.5s;
+    }
+
+  }
+</style>
