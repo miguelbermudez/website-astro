@@ -79,6 +79,11 @@ article>header {
   }
 }
 
+nav {
+  @apply font-sans-bold text-xs tracking-widest;
+  text-transform: uppercase;
+}
+
 img {}
 
 
@@ -106,12 +111,6 @@ ol {}
 
 ul {}
 
-ul,
-ol {
-  list-style-position: outside;
-  margin-bottom: var(--grid);
-  padding-left: 0;
-}
 
 li {}
 

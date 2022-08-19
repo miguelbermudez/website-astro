@@ -26,14 +26,17 @@
   --color-text: theme('colors.woodsmoke');
   --color-background: theme('colors.zinc.50');
   --color-border: theme('colors.stone.300');
+  --color-tint: rgb(var(--color-woodsmoke) / 0.15);
 }
 :root[color-mode='dark'] {
   --color-text: theme('colors.ebb');
   --color-background: theme('colors.woodsmoke');
+  --color-tint: rgb(var(--color-woodsmoke) / 0.15);
 }
 :root[color-mode='beryl'] {
   --color-text: theme('colors.tamarillo');
   --color-background: theme('colors.beautybush');
+  --color-tint: rgb(var(--color-tamarillo) / 0.15);
 }
 
 * {
@@ -62,6 +65,24 @@ body {
 
 .container > * {
   grid-column: col-start / span 12;
+}
+
+nav li:hover {
+  @apply rounded-md;
+  background-color: var(--color-tint);
+}
+nav li:hover button #outline {
+  visibility: hidden;
+}
+nav li:hover button #solid {
+  visibility: hidden;
+  visibility: visible;
+}
+
+ul,
+ol {
+  list-style-position: outside;
+  margin: 0;
 }
 
 pre {

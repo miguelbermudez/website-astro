@@ -1,0 +1,53 @@
+---
+export interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<button type='button' aria-label={label}>
+  <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="19" height="19">
+    <g id="outline">
+      <slot name="outline-paths" />
+    </g>
+    <g id="solid">
+      <slot name="solid-paths" />
+    </g>
+  </svg>
+</button>
+
+<style lang='scss'>
+  li.group:hover {}
+
+  button {
+    --size: 1.5rem;
+    height: var(--size);
+    width: var(--size);
+    background: transparent;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+
+    >svg {
+      grid-area: 1/1;
+      height: calc(var(--size) * 0.75);
+      width: calc(var(--size) * 0.75);
+
+      >g#solid {
+        visibility: hidden;
+      }
+    }
+
+    &:hover {
+      #outline {
+        visibility: hidden;
+      }
+
+      #solid {
+        visibility: visible;
+      }
+    }
+  }
+</style>
