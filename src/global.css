@@ -83,7 +83,7 @@ nav span.active {
 }
 
 pre {
-  @apply pb-4;
+  @apply pb-4 rounded-xl dark:bg-slate-700/20;
   overflow-x: auto;
 }
 
@@ -99,8 +99,6 @@ code[data-line-numbers] {
 code[data-line-numbers] > .line::before {
   counter-increment: line;
   content: counter(line);
-
-  /* Other styling */
   display: inline-block;
   margin-right: 2rem;
   text-align: right;
@@ -110,14 +108,11 @@ code[data-line-numbers] > .line::before {
 :where(code, kbd, samp, pre) {
 }
 
-section > *:last-child,
-section > *:last-child > *:last-child,
-section > *:last-child > *:last-child > *:last-child {
-  /* margin: 0; */
-}
-
 div[data-rehype-pretty-code-fragment] {
   @apply rounded-xl dark:bg-slate-700/20 border dark:border-neutral-50/20;
+}
+div[data-rehype-pretty-code-fragment] pre {
+  background-color: transparent;
 }
 
 .rehype-code-title {
